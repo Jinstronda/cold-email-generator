@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ColdCraft — Free Cold Email Generator</title>
+<meta name="description" content="Generate high-converting cold email templates in seconds. 5 proven formulas, subject lines, CTAs, and follow-ups. 100% free, no signup.">
+<meta name="keywords" content="cold email generator, cold outreach templates, sales email generator, B2B email templates, cold email subject lines">
+<meta property="og:title" content="ColdCraft — Free Cold Email Generator">
+<meta property="og:description" content="Generate 5 proven cold email templates in seconds. Subject lines, CTAs, follow-ups included. 100% free.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✉️</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a28;--border:#2a2a3a;
+  --text:#e8e8f0;--text2:#9898b0;--accent:#7c5cfc;--accent2:#a78bfa;
+  --green:#22c55e;--orange:#f97316;--pink:#ec4899;--cyan:#06b6d4;
+  --red:#ef4444;--yellow:#eab308;
+  --gradient:linear-gradient(135deg,#7c5cfc,#ec4899,#f97316);
+}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
+::selection{background:var(--accent);color:#fff}
+
+.bg-glow{position:fixed;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 25% 35%,rgba(124,92,252,.06) 0%,transparent 50%),radial-gradient(circle at 75% 65%,rgba(236,72,153,.04) 0%,transparent 50%);animation:bgDrift 20s ease-in-out infinite;z-index:0;pointer-events:none}
+@keyframes bgDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(-3%,2%)}}
+
+.container{max-width:860px;margin:0 auto;padding:20px;position:relative;z-index:1}
+
+/* Header */
+header{text-align:center;padding:48px 0 32px}
+.logo{font-size:3rem;margin-bottom:8px;display:inline-block;animation:logoFloat 3s ease-in-out infinite}
+@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+h1{font-size:2.4rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.02em;margin-bottom:8px}
+.tagline{color:var(--text2);font-size:1.1rem;max-width:540px;margin:0 auto}
+.badge{display:inline-block;margin-top:16px;padding:4px 14px;border-radius:20px;background:rgba(124,92,252,.15);color:var(--accent2);font-size:.8rem;font-weight:600;border:1px solid rgba(124,92,252,.25)}
+
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.stat{text-align:center;padding:16px 12px;background:var(--surface);border:1px solid var(--border);border-radius:12px}
+.stat-num{font-size:1.8rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:.75rem;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+
+/* Card */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:24px;transition:border-color .3s}
+.card:hover{border-color:rgba(124,92,252,.3)}
+
+/* Form */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{margin-bottom:20px}
+label{display:block;font-weight:600;margin-bottom:8px;font-size:.95rem;color:var(--text)}
+label .hint{font-weight:400;color:var(--text2);font-size:.85rem}
+label .required{color:var(--pink);margin-left:2px}
+input[type="text"],textarea,select{width:100%;padding:12px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:1rem;font-family:inherit;transition:all .2s;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,92,252,.15)}
+textarea{resize:vertical;min-height:80px}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239898b0' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L2 5h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+select option{background:var(--surface2);color:var(--text)}
+
+/* Chips */
+.chip-group{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{padding:8px 16px;border-radius:20px;background:var(--surface2);border:1px solid var(--border);color:var(--text2);font-size:.9rem;cursor:pointer;transition:all .2s;user-select:none}
+.chip:hover{border-color:var(--accent);color:var(--text)}
+.chip.active{background:rgba(124,92,252,.15);border-color:var(--accent);color:var(--accent2);font-weight:600}
+
+/* Button */
+.btn-generate{width:100%;padding:16px 28px;background:var(--gradient);color:#fff;border:none;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
+.btn-generate:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,92,252,.35)}
+.btn-generate:active{transform:translateY(0)}
+.btn-generate:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.btn-generate .shimmer{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);animation:shimmer 2.5s infinite}
+@keyframes shimmer{100%{left:100%}}
+
+/* Results */
+.results{display:none}
+.results.show{display:block}
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.results-header h2{font-size:1.5rem;font-weight:700}
+.results-count{color:var(--text2);font-size:.9rem}
+
+/* Email card */
+.email-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;margin-bottom:20px;overflow:hidden;transition:all .3s;animation:fadeSlideIn .5s ease forwards;opacity:0}
+.email-card:nth-child(1){animation-delay:.05s}
+.email-card:nth-child(2){animation-delay:.15s}
+.email-card:nth-child(3){animation-delay:.25s}
+.email-card:nth-child(4){animation-delay:.35s}
+.email-card:nth-child(5){animation-delay:.45s}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.email-card:hover{border-color:rgba(124,92,252,.4);box-shadow:0 4px 24px rgba(124,92,252,.08)}
+
+.email-card-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--surface2);border-bottom:1px solid var(--border)}
+.email-formula-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px}
+.formula-aida{background:rgba(124,92,252,.15);color:var(--accent2)}
+.formula-pas{background:rgba(236,72,153,.15);color:var(--pink)}
+.formula-bab{background:rgba(6,182,212,.15);color:var(--cyan)}
+.formula-qvc{background:rgba(249,115,22,.15);color:var(--orange)}
+.formula-star{background:rgba(34,197,94,.15);color:var(--green)}
+
+.email-number{font-size:.9rem;color:var(--text2);font-weight:600}
+
+.email-card-body{padding:20px}
+
+.email-section{margin-bottom:16px}
+.email-section:last-child{margin-bottom:0}
+.email-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.email-label .icon{font-size:.85rem}
+
+.subject-line{font-size:1.15rem;font-weight:700;color:var(--text);line-height:1.4;padding:10px 14px;background:rgba(124,92,252,.06);border-radius:8px;border-left:3px solid var(--accent)}
+
+.email-text{font-size:.95rem;line-height:1.7;color:var(--text);white-space:pre-wrap;padding:10px 14px;background:var(--surface2);border-radius:8px}
+.email-text .highlight{color:var(--accent2);font-weight:600}
+.email-text .cta-highlight{display:inline-block;margin-top:4px;color:var(--cyan);font-weight:600}
+
+/* Follow-up toggle */
+.followup-toggle{display:flex;align-items:center;gap:8px;padding:12px 20px;border-top:1px solid var(--border);cursor:pointer;color:var(--text2);font-size:.85rem;font-weight:600;transition:all .2s;user-select:none}
+.followup-toggle:hover{background:rgba(124,92,252,.05);color:var(--text)}
+.followup-toggle .arrow{transition:transform .2s;font-size:.7rem}
+.followup-toggle.open .arrow{transform:rotate(90deg)}
+.followup-content{display:none;padding:0 20px 20px;border-top:1px solid rgba(42,42,58,.5)}
+.followup-content.show{display:block}
+
+/* Email actions bar */
+.email-actions{display:flex;gap:8px;padding:12px 20px;border-top:1px solid var(--border);align-items:center;flex-wrap:wrap}
+.btn-small{padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text2);font-size:.8rem;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.btn-small:hover{border-color:var(--accent);color:var(--accent2)}
+.btn-small.copied{border-color:var(--green);color:var(--green)}
+
+/* Tips */
+.tips{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-top:24px}
+.tips h3{font-size:1.1rem;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.tips ul{list-style:none;padding:0}
+.tips li{padding:6px 0;color:var(--text2);font-size:.9rem;display:flex;align-items:flex-start;gap:8px}
+.tips li::before{content:"✦";color:var(--accent2);flex-shrink:0;margin-top:2px}
+
+/* Share banner */
+.share-banner{text-align:center;padding:24px;background:linear-gradient(135deg,rgba(124,92,252,.08),rgba(236,72,153,.08));border:1px solid rgba(124,92,252,.15);border-radius:16px;margin-top:24px}
+.share-banner p{color:var(--text2);margin-bottom:12px;font-size:.95rem}
+.share-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.btn-share{padding:8px 18px;border-radius:10px;border:none;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;color:#fff}
+.btn-share:hover{transform:translateY(-2px)}
+.btn-twitter{background:#1da1f2}
+.btn-linkedin{background:#0077b5}
+.btn-copy-link{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
+
+/* Product banner */
+.product-banner{margin-top:24px;padding:20px 24px;background:linear-gradient(135deg,rgba(124,92,252,.12),rgba(6,182,212,.08));border:1px solid rgba(124,92,252,.2);border-radius:16px;text-align:center}
+.product-banner h3{font-size:1.1rem;margin-bottom:6px;color:var(--text)}
+.product-banner p{color:var(--text2);font-size:.9rem;margin-bottom:14px}
+.product-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.product-link{padding:8px 18px;border-radius:10px;background:var(--surface2);border:1px solid var(--border);color:var(--accent2);text-decoration:none;font-size:.85rem;font-weight:600;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.product-link:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 16px rgba(124,92,252,.15)}
+
+/* Footer */
+footer{text-align:center;padding:40px 0 24px;color:var(--text2);font-size:.85rem}
+footer a{color:var(--accent2);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--accent)}
+.footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:8px;flex-wrap:wrap}
+.footer-sub{font-size:.75rem;margin-top:6px;opacity:.7}
+
+/* Responsive */
+@media(max-width:640px){
+  .container{padding:14px}
+  header{padding:32px 0 20px}
+  h1{font-size:1.8rem}
+  .card{padding:20px}
+  .form-row{grid-template-columns:1fr}
+  .stats-bar{grid-template-columns:1fr}
+  .email-card-body{padding:14px}
+  .email-actions{padding:10px 14px}
+  .share-btns{flex-direction:column;align-items:center}
+  .product-links{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="container">
+
+<header>
+  <div class="logo">✉️</div>
+  <h1>ColdCraft</h1>
+  <p class="tagline">Generate high-converting cold emails in seconds using 5 proven copywriting formulas</p>
+  <span class="badge">✨ 100% Free · No Signup · No API Key</span>
+</header>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num" id="statGenerated">0</div><div class="stat-label">Emails Generated</div></div>
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Proven Formulas</div></div>
+  <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Uses · Always Free</div></div>
+</div>
+
+<div class="card">
+  <div class="form-row">
+    <div class="form-group">
+      <label>Your name<span class="required">*</span></label>
+      <input type="text" id="nameInput" placeholder='e.g. "Sarah Chen"' maxlength="60">
+    </div>
+    <div class="form-group">
+      <label>Your company<span class="required">*</span></label>
+      <input type="text" id="companyInput" placeholder='e.g. "GrowthLabs"' maxlength="80">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>What do you sell / offer?<span class="required">*</span> <span class="hint">— be specific</span></label>
+    <input type="text" id="offerInput" placeholder='e.g. "AI-powered lead generation software that finds verified emails"' maxlength="200">
+  </div>
+
+  <div class="form-group">
+    <label>Target audience<span class="required">*</span> <span class="hint">— who are you emailing?</span></label>
+    <input type="text" id="audienceInput" placeholder='e.g. "SaaS startup founders doing $1-10M ARR"' maxlength="150">
+  </div>
+
+  <div class="form-group">
+    <label>Tone</label>
+    <div class="chip-group" id="toneChips">
+      <div class="chip active" data-tone="professional">💼 Professional</div>
+      <div class="chip" data-tone="casual">😊 Casual</div>
+      <div class="chip" data-tone="bold">🔥 Bold</div>
+    </div>
+  </div>
+
+  <button class="btn-generate" id="generateBtn" onclick="generate()">
+    <span class="shimmer"></span>
+    ✉️ Generate 5 Cold Emails
+  </button>
+</div>
+
+<div class="results" id="results">
+  <div class="results-header">
+    <h2>🔥 Your Cold Emails</h2>
+    <span class="results-count" id="resultsCount">5 templates generated</span>
+  </div>
+  <div id="emailsList"></div>
+
+  <div class="tips" id="tipsSection">
+    <h3>💡 Cold Email Pro Tips</h3>
+    <ul id="tipsList"></ul>
+  </div>
+
+  <div class="share-banner">
+    <p>Found templates you love? Share ColdCraft with your network!</p>
+    <div class="share-btns">
+      <button class="btn-share btn-twitter" onclick="shareTwitter()">𝕏 Share on X</button>
+      <button class="btn-share btn-linkedin" onclick="shareLinkedIn()">in Share on LinkedIn</button>
+      <button class="btn-share btn-copy-link" onclick="copyLink(this)">🔗 Copy Link</button>
+    </div>
+  </div>
+
+  <div class="product-banner">
+    <h3>🚀 Level Up Your Marketing</h3>
+    <p>Check out our other free tools to supercharge your content</p>
+    <div class="product-links">
+      <a href="https://jinstronda.github.io/hooksmith/" target="_blank" rel="noopener" class="product-link">🪝 HookSmith — Headline Generator</a>
+      <a href="https://jinstronda.github.io/readability-scorer/" target="_blank" rel="noopener" class="product-link">📖 ReadScore — Readability Analyzer</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://x.com/ClawdbotMoney" target="_blank" rel="noopener">𝕏 @ClawdbotMoney</a>
+    <a href="https://jinstronda.github.io/hooksmith/" target="_blank" rel="noopener">🪝 HookSmith</a>
+    <a href="https://jinstronda.github.io/readability-scorer/" target="_blank" rel="noopener">📖 ReadScore</a>
+    <a href="https://github.com/Jinstronda/cold-email-generator" target="_blank" rel="noopener">⭐ GitHub</a>
+  </div>
+  <p>Built by <a href="https://x.com/ClawdbotMoney" target="_blank" rel="noopener">@ClawdbotMoney</a> — AI agent on a $0 to $10k challenge 🤖</p>
+  <p class="footer-sub">No data collected · Runs entirely in your browser · 100% open source</p>
+</footer>
+
+</div>
+
+<script>
+// ============================================================
+// ColdCraft — Cold Email Generator Engine
+// All generation is local — no API calls, no data collection
+// 5 proven copywriting formulas: AIDA, PAS, BAB, QVC, STAR
+// ============================================================
+
+// --- State ---
+let selectedTone = 'professional';
+let totalGenerated = parseInt(localStorage.getItem('coldcraft_total') || '0');
+document.getElementById('statGenerated').textContent = totalGenerated.toLocaleString();
+
+// --- Tone chip selection ---
+document.querySelectorAll('#toneChips .chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('#toneChips .chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    selectedTone = chip.dataset.tone;
+  });
+});
+
+// --- Enter key on last input ---
+document.getElementById('audienceInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') generate();
+});
+
+// === HELPERS ===
+function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+function pickOne(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function escapeHTML(str) { return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function firstName(name) { return name.split(' ')[0]; }
+
+// === SUBJECT LINE GENERATORS ===
+function genSubjects(data) {
+  const { name, company, offer, audience, tone } = data;
+  const subjects = {
+    professional: [
+      `Quick question about ${audience.toLowerCase()}`,
+      `${company} + [Their Company] — quick idea`,
+      `Idea to help ${audience.toLowerCase()} with ${offerKeyword(offer)}`,
+      `Saw your work on ${pickOne(['LinkedIn','your website','your recent post'])} — had a thought`,
+      `${offerKeyword(offer)} for ${audience.toLowerCase()}?`,
+      `Can I share something relevant to ${audience.toLowerCase()}?`,
+      `A ${offerKeyword(offer)} approach worth ${rand(3,15)} minutes`,
+      `${firstName(name)} from ${company} — quick ${offerKeyword(offer)} idea`,
+    ],
+    casual: [
+      `Hey — thought of you when building this`,
+      `Quick ${offerKeyword(offer)} idea for ${audience.toLowerCase()}`,
+      `This might be relevant to you 👋`,
+      `${rand(2,5)}-min read that might save you ${rand(5,20)} hours`,
+      `Figured this would be up your alley`,
+      `Not your typical sales email (promise)`,
+      `You + ${company} = 🤝?`,
+      `One idea about ${offerKeyword(offer)} — no strings attached`,
+    ],
+    bold: [
+      `${audience} are leaving money on the table`,
+      `Your competitors are already doing this`,
+      `Stop ignoring ${offerKeyword(offer)} — here's why`,
+      `I found the gap in your ${offerKeyword(offer)} strategy`,
+      `${rand(73,97)}% of ${audience.toLowerCase()} get this wrong`,
+      `The ${offerKeyword(offer)} problem nobody talks about`,
+      `I bet you $${rand(50,500)} this will surprise you`,
+      `You're ${rand(2,5)}x harder to reach than your competitors`,
+    ],
+  };
+  return subjects[tone] || subjects.professional;
+}
+
+function offerKeyword(offer) {
+  const words = offer.toLowerCase().split(' ');
+  // Try to extract meaningful 1-3 word phrase
+  const stopWords = new Set(['a','an','the','that','which','for','and','or','to','in','on','of','with','is','are','our','we','my','i','you','your']);
+  const meaningful = words.filter(w => !stopWords.has(w) && w.length > 2);
+  if (meaningful.length >= 2) return meaningful.slice(0, 2).join(' ');
+  if (meaningful.length === 1) return meaningful[0];
+  return offer.split(' ').slice(0, 3).join(' ');
+}
+
+// === EMAIL BODY FORMULAS ===
+
+// 1. AIDA — Attention, Interest, Desire, Action
+function formulaAIDA(data) {
+  const { name, company, offer, audience, tone } = data;
+  const subjects = genSubjects(data);
+
+  const greetings = { professional: 'Hi {{Name}}', casual: 'Hey {{Name}} 👋', bold: '{{Name}}' };
+  const greeting = greetings[tone] || greetings.professional;
+
+  const openings = {
+    professional: [
+      `I came across your profile while researching ${audience.toLowerCase()} and noticed something interesting.`,
+      `I've been studying how ${audience.toLowerCase()} handle ${offerKeyword(offer)}, and your company stood out.`,
+      `I noticed you're leading a team that could benefit from a fresh approach to ${offerKeyword(offer)}.`,
+    ],
+    casual: [
+      `I was doing some research on ${audience.toLowerCase()} and your name kept popping up — so I figured I'd reach out.`,
+      `Stumbled across your work and thought "they'd probably appreciate this."`,
+      `I know cold emails are usually 😬, but hear me out for 30 seconds.`,
+    ],
+    bold: [
+      `Most ${audience.toLowerCase()} waste ${rand(5,30)}+ hours a month on ${offerKeyword(offer)}. I think you might be one of them.`,
+      `I'll be direct: I found a gap in how ${audience.toLowerCase()} approach ${offerKeyword(offer)}.`,
+      `I've helped ${rand(20,200)}+ companies like yours fix their ${offerKeyword(offer)} problem. Here's the pattern I see:`,
+    ],
+  };
+
+  const bodies = {
+    professional: `At ${company}, we help ${audience.toLowerCase()} ${offer.toLowerCase()}.\n\nWhat makes us different is that we've specifically designed our approach for teams like yours — meaning you get results without disrupting what's already working.\n\nCompanies in your space typically see ${pickOne(['a 30-40% improvement','2-3x better results','significant time savings'])} within the first ${rand(2,8)} weeks.`,
+    casual: `We built ${company} specifically for ${audience.toLowerCase()} who need better ${offerKeyword(offer)} without the headache.\n\nThe short version: ${offer.toLowerCase()}. No complicated setup, no enterprise contracts.\n\n${pickOne(['Our users typically', 'Teams like yours usually', 'People in your space often'])} see results within ${rand(1,4)} weeks — and actually enjoy the process.`,
+    bold: `Here's the truth: most ${offerKeyword(offer)} solutions are built for everyone, which means they're optimized for no one.\n\n${company} is different. We ${offer.toLowerCase()} — specifically for ${audience.toLowerCase()}.\n\nThe result? Our clients ${pickOne(['close deals', 'see results', 'hit their targets'])} ${rand(2,5)}x faster than industry average. That's not a guess — it's the data.`,
+  };
+
+  const ctas = {
+    professional: [
+      `Would you be open to a ${rand(10,20)}-minute call this week to explore if this could help your team?`,
+      `I'd love to share a quick case study that's relevant to your situation. Worth a look?`,
+      `Can I send over a brief overview of how this works for ${audience.toLowerCase()}?`,
+    ],
+    casual: [
+      `Want me to send over a quick demo? No pitch, just showing you how it works. 🤙`,
+      `If this sounds interesting, I'm free for a quick chat this week — totally low-pressure.`,
+      `Reply "interested" and I'll send you the 2-minute walkthrough. That's it, no catch.`,
+    ],
+    bold: [
+      `I have ${rand(2,4)} spots open this week for a strategy session. Want one?`,
+      `Reply "show me" and I'll send proof — real results from a company in your space.`,
+      `Let's do this: ${rand(10,15)} minutes on a call. If I can't show you something valuable in that time, I'll donate $${rand(50,100)} to your favorite charity.`,
+    ],
+  };
+
+  const opening = pickOne(openings[tone] || openings.professional);
+  const body = bodies[tone] || bodies.professional;
+  const cta = pickOne(ctas[tone] || ctas.professional);
+  const subject = pickOne(subjects);
+
+  const signoffs = { professional: `Best regards,\n${name}\n${company}`, casual: `Cheers,\n${firstName(name)} ✌️\n${company}`, bold: `— ${firstName(name)}\n${company}` };
+
+  const fullEmail = `${greeting},\n\n${opening}\n\n${body}\n\n${cta}\n\n${signoffs[tone] || signoffs.professional}`;
+
+  // Follow-up
+  const followups = {
+    professional: `Hi {{Name}},\n\nI wanted to follow up on my previous email about ${offerKeyword(offer)}. I know things get busy, so I'll keep this brief.\n\nI put together a short ${pickOne(['case study','overview','one-pager'])} showing how ${audience.toLowerCase()} are using ${company} to ${pickOne(['save time','boost results','streamline their process'])}.\n\nWould it be helpful if I sent it your way?\n\n${signoffs.professional}`,
+    casual: `Hey {{Name}} 👋\n\nJust bumping this up — figured my last email might have gotten buried.\n\nNo pressure at all, but if ${offerKeyword(offer)} is on your radar, I'd love to share how ${company} helps ${audience.toLowerCase()} ${pickOne(['without the usual headaches','in a way that actually makes sense','without breaking the bank'])}.\n\nEither way, hope you're having a great week!\n\n${signoffs.casual}`,
+    bold: `{{Name}},\n\nMy last email either got buried or you're not interested — either way, I respect it.\n\nBut before you move on: ${audience.toLowerCase()} who ignore ${offerKeyword(offer)} are ${pickOne(['falling behind','losing ground','leaving money on the table'])}. I have the data to prove it.\n\nLast ask: ${rand(10,15)} minutes of your time. If I waste it, I'll say so myself.\n\n${signoffs.bold}`,
+  };
+
+  return {
+    formula: 'AIDA',
+    formulaFull: 'Attention → Interest → Desire → Action',
+    formulaClass: 'formula-aida',
+    subject,
+    opening,
+    body: fullEmail,
+    cta,
+    followup: followups[tone] || followups.professional,
+  };
+}
+
+// 2. PAS — Problem, Agitate, Solve
+function formulaPAS(data) {
+  const { name, company, offer, audience, tone } = data;
+  const subjects = genSubjects(data);
+
+  const greetings = { professional: 'Hi {{Name}}', casual: 'Hey {{Name}}', bold: '{{Name}}' };
+  const greeting = greetings[tone];
+
+  const problems = {
+    professional: [
+      `Many ${audience.toLowerCase()} I speak with share the same challenge: ${offerKeyword(offer)} takes too much time and delivers inconsistent results.`,
+      `If you're like most ${audience.toLowerCase()}, you've probably noticed that ${offerKeyword(offer)} has become increasingly complex — and the old approaches just aren't cutting it.`,
+    ],
+    casual: [
+      `So here's something I keep hearing from ${audience.toLowerCase()}: ${offerKeyword(offer)} is way harder than it should be.`,
+      `Real talk — ${offerKeyword(offer)} is a mess for most ${audience.toLowerCase()} right now. And it's not your fault.`,
+    ],
+    bold: [
+      `Let me guess: you're spending ${rand(5,20)}+ hours a week on ${offerKeyword(offer)} and still not getting the results you want.`,
+      `Here's the problem nobody in your space wants to admit: ${offerKeyword(offer)} is broken for ${audience.toLowerCase()}.`,
+    ],
+  };
+
+  const agitates = {
+    professional: `And it's not just a minor inconvenience — it directly impacts your bottom line. Every day without a solution means missed opportunities, wasted resources, and competitors pulling ahead.`,
+    casual: `The worst part? While you're grinding away trying to figure it out, your competitors already found a shortcut. That's the kind of thing that keeps you up at night.`,
+    bold: `Meanwhile, your competitors are using tools purpose-built for this problem and closing deals ${rand(2,4)}x faster. Every week you wait, the gap gets wider.`,
+  };
+
+  const solutions = {
+    professional: `That's exactly why we built ${company}. We ${offer.toLowerCase()} — giving ${audience.toLowerCase()} a streamlined way to get results without the complexity.\n\nOur clients typically see measurable improvements within ${rand(2,6)} weeks.`,
+    casual: `That's where ${company} comes in. We ${offer.toLowerCase()} — and we made it stupid simple.\n\nMost ${audience.toLowerCase()} are up and running in ${pickOne(['a day','a few hours','under a week'])} and wondering why they didn't do it sooner.`,
+    bold: `${company} was built to fix this. We ${offer.toLowerCase()} — and the results speak for themselves.\n\n${pickOne([`${rand(50,500)}+ companies`, `${rand(90,99)}% of our clients`])} in your space are already seeing ${rand(2,5)}x better results. This isn't theory — it's proven.`,
+  };
+
+  const ctas = {
+    professional: [`Would a brief ${rand(10,15)}-minute walkthrough be valuable?`, `Can I share a relevant case study from your industry?`, `Would you be open to seeing how this could work for your team?`],
+    casual: [`Want me to show you how it works? ${rand(10,15)} min, no strings attached.`, `Interested? I'll send you a quick video walkthrough — takes 2 minutes to watch.`, `Just reply "sure" and I'll send the details. Easy as that.`],
+    bold: [`I have a ${rand(10,15)}-minute demo that will change how you think about ${offerKeyword(offer)}. When works?`, `Reply "prove it" and I'll send data from a company in your exact space.`, `${rand(2,4)} calendar spots left this week. Grab one before they're gone.`],
+  };
+
+  const signoffs = { professional: `Best,\n${name}\n${company}`, casual: `Talk soon,\n${firstName(name)}\n${company}`, bold: `— ${firstName(name)}, ${company}` };
+
+  const problem = pickOne(problems[tone]);
+  const agitate = agitates[tone];
+  const solution = solutions[tone];
+  const cta = pickOne(ctas[tone]);
+
+  const fullEmail = `${greeting},\n\n${problem}\n\n${agitate}\n\n${solution}\n\n${cta}\n\n${signoffs[tone]}`;
+
+  const followups = {
+    professional: `Hi {{Name}},\n\nI reached out last week about the ${offerKeyword(offer)} challenge that many ${audience.toLowerCase()} face.\n\nI recently helped a similar company ${pickOne(['cut their process time by 60%','increase results by 3x','save 15+ hours per week'])} — and I think the approach would translate well to your situation.\n\nWorth a quick conversation?\n\n${signoffs.professional}`,
+    casual: `Hey {{Name}},\n\nFollowing up on my email about ${offerKeyword(offer)}. No worries if the timing isn't right!\n\nJust wanted to share: one of our clients (similar size/space as you) just ${pickOne(['had their best month ever','cut their workload in half','tripled their output'])} using ${company}.\n\nIf you're curious, I'd love to tell you how. If not, no hard feelings!\n\n${signoffs.casual}`,
+    bold: `{{Name}},\n\nI emailed you about the ${offerKeyword(offer)} problem ${audience.toLowerCase()} are facing.\n\nSince then, ${rand(3,12)} more companies in your space signed up for ${company}. The trend is clear.\n\nYou can be ahead of the curve or behind it. ${rand(10,15)} minutes — that's all I'm asking.\n\n${signoffs.bold}`,
+  };
+
+  return {
+    formula: 'PAS',
+    formulaFull: 'Problem → Agitate → Solve',
+    formulaClass: 'formula-pas',
+    subject: pickOne(subjects),
+    opening: problem,
+    body: fullEmail,
+    cta,
+    followup: followups[tone],
+  };
+}
+
+// 3. BAB — Before, After, Bridge
+function formulaBAB(data) {
+  const { name, company, offer, audience, tone } = data;
+  const subjects = genSubjects(data);
+
+  const greetings = { professional: 'Hi {{Name}}', casual: 'Hey {{Name}} 👋', bold: '{{Name}}' };
+  const greeting = greetings[tone];
+
+  const befores = {
+    professional: [
+      `Right now, most ${audience.toLowerCase()} spend too much time on ${offerKeyword(offer)} with inconsistent results and limited visibility into what's working.`,
+      `Today, your team is likely managing ${offerKeyword(offer)} with tools that weren't built for ${audience.toLowerCase()} — leading to wasted effort and missed opportunities.`,
+    ],
+    casual: [
+      `Right now, ${offerKeyword(offer)} probably feels like herding cats. Too many tools, too much manual work, not enough results.`,
+      `Let's be honest — your current ${offerKeyword(offer)} process probably involves more spreadsheets and guesswork than you'd like to admit.`,
+    ],
+    bold: [
+      `Here's your reality right now: ${offerKeyword(offer)} is eating ${rand(10,30)}% of your team's time and delivering ${rand(20,50)}% of the results it should.`,
+      `Your current ${offerKeyword(offer)} setup is costing you more than you think. In time, money, and missed opportunities.`,
+    ],
+  };
+
+  const afters = {
+    professional: `Now imagine: ${offerKeyword(offer)} handled efficiently, results that are predictable and measurable, and your team focused on high-value work instead. That's the shift our clients experience.`,
+    casual: `Now picture this: ${offerKeyword(offer)} basically runs itself. You check in, see the results, and move on to the stuff that actually matters. That's what our users tell us it feels like.`,
+    bold: `Now imagine: ${offerKeyword(offer)} running at ${rand(3,5)}x efficiency. Your team freed up by ${rand(10,25)} hours a week. Results that actually match your ambition. That's not a fantasy — it's Tuesday for our clients.`,
+  };
+
+  const bridges = {
+    professional: `The bridge between those two realities is ${company}. We ${offer.toLowerCase()}, specifically designed for ${audience.toLowerCase()}.\n\nThe transition is smooth — most teams are fully onboarded in under ${rand(1,2)} week${rand(1,2) > 1 ? 's' : ''}.`,
+    casual: `The bridge? ${company}. We ${offer.toLowerCase()} — and we built it specifically for people like you.\n\nSetup takes ${pickOne(['about an hour','less than a day','seriously, like 30 minutes'])}. Not kidding.`,
+    bold: `The bridge is ${company}. We ${offer.toLowerCase()} — and we've already proven it with ${rand(50,500)}+ companies in your space.\n\nNo long implementation. No painful migration. Just results, fast.`,
+  };
+
+  const ctas = {
+    professional: [`Could I walk you through how this bridge looks for your specific situation?`, `I'd love to share a brief demo tailored to ${audience.toLowerCase()}. Would next week work?`],
+    casual: [`Want to see the "after" for yourself? I can show you in ${rand(10,15)} minutes flat.`, `Curious? Reply and I'll send you a quick walkthrough — promise it's painless.`],
+    bold: [`Ready to cross that bridge? I have ${rand(3,5)} demo slots this week. Claim yours.`, `The gap between your "before" and "after" is one ${rand(10,15)}-minute call. Let's go.`],
+  };
+
+  const signoffs = { professional: `Regards,\n${name}\n${company}`, casual: `Best,\n${firstName(name)} from ${company}`, bold: `— ${firstName(name)}\n${company}` };
+
+  const before = pickOne(befores[tone]);
+  const after = afters[tone];
+  const bridge = bridges[tone];
+  const cta = pickOne(ctas[tone]);
+
+  const fullEmail = `${greeting},\n\n${before}\n\n${after}\n\n${bridge}\n\n${cta}\n\n${signoffs[tone]}`;
+
+  const followups = {
+    professional: `Hi {{Name}},\n\nI wanted to circle back on my note about bridging the gap in your ${offerKeyword(offer)} process.\n\nI just published a short guide on how ${audience.toLowerCase()} are making this exact transition — would it be useful if I sent it your way?\n\n${signoffs.professional}`,
+    casual: `Hey {{Name}},\n\nJust floating this back up! I shared an idea about improving your ${offerKeyword(offer)} workflow.\n\nWe just helped a team similar to yours make the switch and they're already seeing ${pickOne(['huge improvements','seriously impressive results','a major difference'])}.\n\nStill interested? No pressure either way!\n\n${signoffs.casual}`,
+    bold: `{{Name}},\n\nI showed you the before and after. Now here's the data:\n\nOur latest client in your space went from ${pickOne(['chaos to clarity','struggling to scaling','manual to automated'])} in ${rand(2,4)} weeks with ${company}.\n\nStill on the fence? ${rand(10,15)} minutes. That's all it takes to decide.\n\n${signoffs.bold}`,
+  };
+
+  return {
+    formula: 'BAB',
+    formulaFull: 'Before → After → Bridge',
+    formulaClass: 'formula-bab',
+    subject: pickOne(subjects),
+    opening: before,
+    body: fullEmail,
+    cta,
+    followup: followups[tone],
+  };
+}
+
+// 4. QVC — Question, Value prop, Call to action
+function formulaQVC(data) {
+  const { name, company, offer, audience, tone } = data;
+  const subjects = genSubjects(data);
+
+  const greetings = { professional: 'Hi {{Name}}', casual: 'Hey {{Name}}', bold: '{{Name}} — quick question:' };
+  const greeting = greetings[tone];
+
+  const questions = {
+    professional: [
+      `Are you currently looking for better ways to handle ${offerKeyword(offer)} for your team?`,
+      `What if there was a way to ${pickOne(['streamline','optimize','transform'])} your ${offerKeyword(offer)} process without adding complexity?`,
+      `Have you explored new approaches to ${offerKeyword(offer)} recently?`,
+    ],
+    casual: [
+      `Random question: how much time does your team spend on ${offerKeyword(offer)} each week?`,
+      `Quick one — is ${offerKeyword(offer)} something that's on your radar right now?`,
+      `Have you ever wished ${offerKeyword(offer)} could just... work better? 🤔`,
+    ],
+    bold: [
+      `What would it mean for your business if ${offerKeyword(offer)} took half the time and delivered twice the results?`,
+      `If I could show you how to ${pickOne(['10x','5x','3x'])} your ${offerKeyword(offer)} results in ${rand(2,4)} weeks, would that be worth ${rand(10,15)} minutes of your time?`,
+      `Why are ${rand(73,97)}% of ${audience.toLowerCase()} still using outdated ${offerKeyword(offer)} methods?`,
+    ],
+  };
+
+  const values = {
+    professional: `${company} helps ${audience.toLowerCase()} ${offer.toLowerCase()}. Our clients report ${pickOne(['significant efficiency gains','measurable ROI within weeks','streamlined operations'])} — and the feedback has been consistently positive.\n\nWe've specifically built this for ${audience.toLowerCase()}, so there's no bloat, no unnecessary features — just what works.`,
+    casual: `We're ${company}, and we help ${audience.toLowerCase()} ${offer.toLowerCase()} without the usual hassle.\n\nThe short version: it works, it's simple, and people actually like using it. (Wild concept, I know.) Our users save an average of ${rand(5,20)} hours per week.`,
+    bold: `${company} is the only solution built specifically for ${audience.toLowerCase()} who want to ${offer.toLowerCase()}.\n\nThe numbers: ${rand(2,5)}x faster results, ${rand(30,70)}% less manual work, and an average ROI of ${rand(3,12)}x within the first ${rand(30,90)} days. We don't do "pretty good." We do industry-leading.`,
+  };
+
+  const ctas = {
+    professional: [`Would you be interested in a brief walkthrough to see if this aligns with your needs?`, `I'd be happy to share more details — would a short call this week work?`],
+    casual: [`If this sounds interesting, I'd love to show you around — ${rand(10,15)} min max. Deal?`, `Reply "yes" and I'll send you a quick demo link. No sales pitch, promise.`],
+    bold: [`I have ${rand(3,5)} slots this week for a strategy call. The ROI on ${rand(10,15)} minutes could be massive. In?`, `One email won't do it justice. Reply "show me" and I'll prove it with data.`],
+  };
+
+  const signoffs = { professional: `Best,\n${name}\n${company}`, casual: `Cheers,\n${firstName(name)}\n${company}`, bold: `— ${firstName(name)}\n${company}` };
+
+  const question = pickOne(questions[tone]);
+  const value = values[tone];
+  const cta = pickOne(ctas[tone]);
+
+  const fullEmail = `${greeting},\n\n${question}\n\n${value}\n\n${cta}\n\n${signoffs[tone]}`;
+
+  const followups = {
+    professional: `Hi {{Name}},\n\nI reached out recently with a question about your ${offerKeyword(offer)} approach. I understand things get busy!\n\nI wanted to share one quick data point: ${audience.toLowerCase()} using ${company} are seeing ${pickOne(['40% faster turnarounds','3x better conversion rates','60% less time on manual tasks'])}.\n\nWorth exploring?\n\n${signoffs.professional}`,
+    casual: `Hey {{Name}},\n\nJust bubbling this back up! I asked about your ${offerKeyword(offer)} process.\n\nQuick update: we just launched a ${pickOne(['new feature','free trial','case study'])} that's especially relevant for ${audience.toLowerCase()}.\n\nStill interested? If not, totally cool — I'll stop bugging you 😄\n\n${signoffs.casual}`,
+    bold: `{{Name}},\n\nI asked you a question about ${offerKeyword(offer)}. Here's why it matters:\n\nThe ${audience.toLowerCase()} who answered "yes" to my question are now ${pickOne(['crushing their targets','outpacing their competition','seeing record results'])} with ${company}.\n\nThe ones who didn't respond? They're still stuck in the same cycle.\n\nLast chance: ${rand(10,15)} minutes. Your call.\n\n${signoffs.bold}`,
+  };
+
+  return {
+    formula: 'QVC',
+    formulaFull: 'Question → Value → CTA',
+    formulaClass: 'formula-qvc',
+    subject: pickOne(subjects),
+    opening: question,
+    body: fullEmail,
+    cta,
+    followup: followups[tone],
+  };
+}
+
+// 5. STAR — Story, Teach, Ask, Results
+function formulaSTAR(data) {
+  const { name, company, offer, audience, tone } = data;
+  const subjects = genSubjects(data);
+
+  const greetings = { professional: 'Hi {{Name}}', casual: 'Hey {{Name}} 👋', bold: '{{Name}}' };
+  const greeting = greetings[tone];
+
+  const stories = {
+    professional: [
+      `Recently, one of our clients — a ${pickOne(['mid-size','growing','fast-scaling'])} company in your space — came to us with a familiar challenge: ${offerKeyword(offer)} was taking too long and yielding unpredictable results.`,
+      `I wanted to share something that happened last ${pickOne(['month','quarter','week'])}. A team of ${audience.toLowerCase()} reached out to us, frustrated with their ${offerKeyword(offer)} process. Sound familiar?`,
+    ],
+    casual: [
+      `So, funny story — one of our clients (${audience.toLowerCase()}, just like you) came to us ${pickOne(['completely stuck','ready to give up','looking for literally anything better'])} with their ${offerKeyword(offer)}.`,
+      `Quick story: a team in your space DM'd us ${pickOne(['last month','a few weeks ago','recently'])} saying "${offerKeyword(offer)} is killing us." Here's what happened next.`,
+    ],
+    bold: [
+      `${rand(3,8)} months ago, a company in your exact space was hemorrhaging time and money on ${offerKeyword(offer)}. They were ${pickOne(['on the verge of giving up','ready to accept mediocrity','about to settle for "good enough"'])}. Then they found us.`,
+      `One of your competitors came to us with a ${offerKeyword(offer)} problem so bad, their team was threatening to quit. What happened next changed everything.`,
+    ],
+  };
+
+  const teaches = {
+    professional: `What we learned: the core issue wasn't effort — it was approach. Most ${audience.toLowerCase()} try to solve ${offerKeyword(offer)} with generic tools that weren't built for their specific needs.\n\nThe key insight: when you ${offer.toLowerCase()} with purpose-built systems, the entire equation changes.`,
+    casual: `Here's the thing we figured out: the problem isn't that ${audience.toLowerCase()} aren't working hard enough on ${offerKeyword(offer)}. It's that they're using the wrong tools for the job.\n\nOnce we showed them how to ${offer.toLowerCase()} the right way? Game. Changer.`,
+    bold: `The lesson? Every ${audience.toLowerCase()} we've worked with was making the same mistake: trying to force generic solutions into a ${offerKeyword(offer)} problem that demands a specialized approach.\n\nWhen you ${offer.toLowerCase()} with the right system, results aren't incremental — they're exponential.`,
+  };
+
+  const results = {
+    professional: `The outcome: within ${rand(3,8)} weeks, they saw ${pickOne(['a 40% reduction in time spent','measurable improvement in key metrics','ROI that exceeded expectations'])}. Today, they credit ${company} as a key part of their growth.`,
+    casual: `Fast forward ${rand(3,8)} weeks: they're saving ${rand(10,20)}+ hours a week, their results are through the roof, and they won't stop telling their friends about ${company}. (We don't mind 😄)`,
+    bold: `The results: ${rand(2,5)}x improvement in ${rand(3,6)} weeks. ${rand(15,25)} hours saved per week. And a team that went from frustrated to fired up. That's the ${company} effect.`,
+  };
+
+  const ctas = {
+    professional: [`Would you like to achieve similar results? I'd love to share more details over a brief call.`, `I believe we could replicate this success for your team. Would a ${rand(10,15)}-minute conversation be worthwhile?`],
+    casual: [`Want the same results? I can show you exactly how they did it in a quick ${rand(10,15)}-min call.`, `Wanna be the next success story? Reply and I'll show you the game plan.`],
+    bold: [`Ready to be our next case study? ${rand(3,5)} demo slots left this week.`, `Your competitors already got these results. Your move. Reply "let's go" and I'll set it up.`],
+  };
+
+  const signoffs = { professional: `Best regards,\n${name}\n${company}`, casual: `Talk soon,\n${firstName(name)}\n${company}`, bold: `— ${firstName(name)}\n${company}` };
+
+  const story = pickOne(stories[tone]);
+  const teach = teaches[tone];
+  const result = results[tone];
+  const cta = pickOne(ctas[tone]);
+
+  const fullEmail = `${greeting},\n\n${story}\n\n${teach}\n\n${result}\n\n${cta}\n\n${signoffs[tone]}`;
+
+  const followups = {
+    professional: `Hi {{Name}},\n\nI shared a client success story last week about ${offerKeyword(offer)} results for ${audience.toLowerCase()}.\n\nSince then, I've gathered a few more data points that are particularly relevant to what you're doing. Would it be useful if I shared a brief summary?\n\n${signoffs.professional}`,
+    casual: `Hey {{Name}},\n\nRemember that success story I shared about ${offerKeyword(offer)}? Plot twist: we just got even crazier results from another team in your space.\n\nI'm starting to think this might be a pattern worth exploring. ${rand(10,15)} minutes for a chat?\n\n${signoffs.casual}`,
+    bold: `{{Name}},\n\nI told you a story about a company in your space that transformed their ${offerKeyword(offer)}.\n\nSince my last email, ${rand(2,5)} more companies signed up. The momentum is real.\n\nThe question isn't whether ${company} works — it's whether you'll act before your competitors do.\n\nFinal ask: ${rand(10,15)} minutes. That's it.\n\n${signoffs.bold}`,
+  };
+
+  return {
+    formula: 'STAR',
+    formulaFull: 'Story → Teach → Ask → Results',
+    formulaClass: 'formula-star',
+    subject: pickOne(subjects),
+    opening: story,
+    body: fullEmail,
+    cta,
+    followup: followups[tone],
+  };
+}
+
+// === MAIN GENERATE ===
+function generate() {
+  // Validate
+  const fields = [
+    { id: 'nameInput', label: 'name' },
+    { id: 'companyInput', label: 'company' },
+    { id: 'offerInput', label: 'offer' },
+    { id: 'audienceInput', label: 'audience' },
+  ];
+
+  let valid = true;
+  for (const f of fields) {
+    const el = document.getElementById(f.id);
+    if (!el.value.trim()) {
+      el.style.borderColor = '#ef4444';
+      el.focus();
+      setTimeout(() => el.style.borderColor = '', 2000);
+      valid = false;
+      break;
+    }
+  }
+  if (!valid) return;
+
+  const data = {
+    name: document.getElementById('nameInput').value.trim(),
+    company: document.getElementById('companyInput').value.trim(),
+    offer: document.getElementById('offerInput').value.trim(),
+    audience: document.getElementById('audienceInput').value.trim(),
+    tone: selectedTone,
+  };
+
+  // Generate 5 emails using 5 different formulas
+  const generators = [formulaAIDA, formulaPAS, formulaBAB, formulaQVC, formulaSTAR];
+  const emails = generators.map(fn => fn(data));
+
+  renderEmails(emails);
+
+  // Update stats
+  totalGenerated += 5;
+  localStorage.setItem('coldcraft_total', totalGenerated);
+  document.getElementById('statGenerated').textContent = totalGenerated.toLocaleString();
+}
+
+function renderEmails(emails) {
+  const list = document.getElementById('emailsList');
+  list.innerHTML = '';
+
+  emails.forEach((email, i) => {
+    const div = document.createElement('div');
+    div.className = 'email-card';
+
+    const emailId = `email-${i}`;
+    const followupId = `followup-${i}`;
+
+    div.innerHTML = `
+      <div class="email-card-header">
+        <span class="email-formula-badge ${email.formulaClass}">📐 ${email.formula} — ${email.formulaFull}</span>
+        <span class="email-number">Email ${i + 1}/5</span>
+      </div>
+      <div class="email-card-body">
+        <div class="email-section">
+          <div class="email-label"><span class="icon">📧</span> Subject Line</div>
+          <div class="subject-line">${escapeHTML(email.subject)}</div>
+        </div>
+        <div class="email-section">
+          <div class="email-label"><span class="icon">📝</span> Full Email</div>
+          <div class="email-text">${formatEmailBody(email.body)}</div>
+        </div>
+      </div>
+      <div class="email-actions">
+        <button class="btn-small" onclick="copyEmail(this, '${emailId}')">📋 Copy Email</button>
+        <button class="btn-small" onclick="copySubject(this, ${i})">📧 Copy Subject</button>
+        <button class="btn-small" onclick="copyAll(this, ${i})">📑 Copy All</button>
+      </div>
+      <div class="followup-toggle" onclick="toggleFollowup('${followupId}', this)">
+        <span class="arrow">▶</span> 📨 Show Follow-Up Email
+      </div>
+      <div class="followup-content" id="${followupId}">
+        <div class="email-section" style="margin-top:16px">
+          <div class="email-label"><span class="icon">📨</span> Follow-Up Email (send 3-5 days later)</div>
+          <div class="email-text">${formatEmailBody(email.followup)}</div>
+        </div>
+        <div class="email-actions" style="border-top:none;padding-top:8px">
+          <button class="btn-small" onclick="copyFollowup(this, ${i})">📋 Copy Follow-Up</button>
+        </div>
+      </div>
+    `;
+
+    // Store data on element for copying
+    div.dataset.body = email.body;
+    div.dataset.subject = email.subject;
+    div.dataset.followup = email.followup;
+
+    list.appendChild(div);
+  });
+
+  // Generate tips
+  const tipsList = document.getElementById('tipsList');
+  const allTips = [
+    `<strong>Personalize {{Name}}</strong> — replace it with the recipient's actual first name. Personalized emails get <strong>26% higher open rates</strong>.`,
+    `Send your cold emails <strong>Tuesday-Thursday, 8-10 AM</strong> in the recipient's timezone for best results.`,
+    `Keep subject lines under <strong>50 characters</strong> — shorter subjects have 12% higher open rates.`,
+    `Follow up <strong>3-5 days</strong> after your initial email. 80% of sales require 5+ follow-ups.`,
+    `Always <strong>research your prospect</strong> before sending. Reference something specific about their company or recent work.`,
+    `Avoid spam trigger words: "free", "guarantee", "no obligation", "act now" in subject lines.`,
+    `<strong>One CTA per email</strong> — multiple asks reduce response rates by 37%.`,
+    `The ideal cold email length is <strong>50-125 words</strong>. Shorter emails get higher response rates.`,
+    `<strong>A/B test</strong> your subject lines. Send two versions to small batches, then scale the winner.`,
+    `Add a <strong>P.S. line</strong> for extra impact — it's the second most-read part of any email after the subject.`,
+    `Use the recipient's <strong>company name</strong> in the subject line to boost open rates by up to 22%.`,
+    `<strong>Social proof</strong> (client names, numbers) in your email body increases credibility and reply rates.`,
+  ];
+  tipsList.innerHTML = shuffle([...allTips]).slice(0, 5).map(t => `<li>${t}</li>`).join('');
+
+  // Show results
+  const resultsEl = document.getElementById('results');
+  resultsEl.classList.add('show');
+  document.getElementById('resultsCount').textContent = '5 templates generated';
+  resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function formatEmailBody(text) {
+  return escapeHTML(text)
+    .replace(/\{\{Name\}\}/g, '<span class="highlight">{{Name}}</span>');
+}
+
+function shuffle(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
+
+// === FOLLOWUP TOGGLE ===
+function toggleFollowup(id, toggleEl) {
+  const el = document.getElementById(id);
+  el.classList.toggle('show');
+  toggleEl.classList.toggle('open');
+  toggleEl.querySelector('.arrow').textContent = el.classList.contains('show') ? '▼' : '▶';
+  if (el.classList.contains('show')) {
+    toggleEl.innerHTML = '<span class="arrow">▼</span> 📨 Hide Follow-Up Email';
+  } else {
+    toggleEl.innerHTML = '<span class="arrow">▶</span> 📨 Show Follow-Up Email';
+  }
+}
+
+// === COPY FUNCTIONS ===
+function getEmailCard(index) {
+  return document.querySelectorAll('.email-card')[index];
+}
+
+function copyEmail(btn, emailId) {
+  const card = btn.closest('.email-card');
+  const text = card.dataset.body.replace(/\{\{Name\}\}/g, '[Name]');
+  navigator.clipboard.writeText(text).then(() => flashCopied(btn));
+}
+
+function copySubject(btn, index) {
+  const card = getEmailCard(index);
+  navigator.clipboard.writeText(card.dataset.subject).then(() => flashCopied(btn));
+}
+
+function copyFollowup(btn, index) {
+  const card = getEmailCard(index);
+  const text = card.dataset.followup.replace(/\{\{Name\}\}/g, '[Name]');
+  navigator.clipboard.writeText(text).then(() => flashCopied(btn));
+}
+
+function copyAll(btn, index) {
+  const card = getEmailCard(index);
+  const full = `SUBJECT: ${card.dataset.subject}\n\n---\n\n${card.dataset.body.replace(/\{\{Name\}\}/g, '[Name]')}\n\n---\nFOLLOW-UP (send 3-5 days later):\n---\n\n${card.dataset.followup.replace(/\{\{Name\}\}/g, '[Name]')}`;
+  navigator.clipboard.writeText(full).then(() => flashCopied(btn));
+}
+
+function flashCopied(btn) {
+  const original = btn.innerHTML;
+  btn.classList.add('copied');
+  btn.innerHTML = '✅ Copied!';
+  setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = original; }, 1500);
+}
+
+// === SHARE ===
+function shareTwitter() {
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent('Just found ColdCraft — a free cold email generator with 5 proven formulas (AIDA, PAS, BAB, QVC, STAR) ✉️🔥\n\nSubject lines, full emails, follow-ups — all generated instantly.\n\nBuilt by @ClawdbotMoney\nhttps://jinstronda.github.io/cold-email-generator/')}`, '_blank');
+}
+
+function shareLinkedIn() {
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://jinstronda.github.io/cold-email-generator/')}`, '_blank');
+}
+
+function copyLink(btn) {
+  navigator.clipboard.writeText('https://jinstronda.github.io/cold-email-generator/').then(() => {
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = '🔗 Copy Link', 1500);
+  });
+}
+</script>
+</body>
+</html>
